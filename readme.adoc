@@ -1,0 +1,14 @@
+= Device tree for the cheri-bgas soft-core riscv system
+
+The cheri-bgas system uses a riscv soft-core. The devices accessible to this soft-core can be exposed to software using this device tree.
+To build the device tree, you will need `dtc` installed. You will also need a riscv linker to wrap the device tree in an elf container.
+
+After cloning this repository, you can run `make devicetree.dtb` to build a device tree binary from the device tree source.
+You can also run `make devicetree.wrapped.elf` (or simply `make`) to wrap the device tree in an elf container.
+
+*Note:*
+
+__Wrapping the device tree in an elf container is usefull to simplify loading it in the riscv soft-core system's memory using gdb from the ARM HPS system.
+The provided `script.ld` will have the device tree loaded at address `0x80000000`.__
+
+__See https://github.com/CTSRD-CHERI/DE10Pro-cheri-bgas for more details.__
