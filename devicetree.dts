@@ -6,7 +6,7 @@
     compatible = "unknown,unknown";
     model = "unknown,unknown";
     chosen {
-        stdout-path = &ns16550;
+        stdout-path = &ns16550_0;
     };
     cpus {
         #address-cells = <1>;
@@ -51,11 +51,19 @@
             riscv,max-priority = <7>;
             riscv,ndev = <16>;
         };
-        ns16550: uart@62300000 {
+        ns16550_0: uart0@62300000 {
             current-speed = <115200>;
             compatible = "ns16550a";
             interrupts-extended = <&plic 1>;
             reg = <0x62300000 0x1000>;
+            clock-frequency = <50000000>;
+            reg-shift = <2>;
+        };
+        ns16550_1: uart1@62301000 {
+            current-speed = <115200>;
+            compatible = "ns16550a";
+            interrupts-extended = <&plic 2>;
+            reg = <0x62301000 0x1000>;
             clock-frequency = <50000000>;
             reg-shift = <2>;
         };
