@@ -67,5 +67,20 @@
             clock-frequency = <50000000>;
             reg-shift = <2>;
         };
+        virtio_mmio@40000000 {
+            compatible = "virtio,mmio";
+            interrupts-extended = <&plic 3>;
+            reg = <0x40000000 0x1000>;
+        };
+        virtio_mmio@40001000 {
+            compatible = "virtio,mmio";
+            interrupts-extended = <&plic 4>;
+            reg = <0x40001000 0x1000>;
+        };
+        virtio_mmio@40002000 {
+            compatible = "virtio,mmio";
+            interrupts-extended = <&plic 5>;
+            reg = <0x40002000 0x1000>;
+        };
     };
 };
