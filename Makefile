@@ -2,7 +2,7 @@
 LD       = ld.lld
 LDSCRIPT = script.ld
 
-all: devicetree.wrapped.elf devicetree.no-uart.wrapped.elf
+all: devicetree.wrapped.elf devicetree.no-uart.wrapped.elf devicetree.dual.wrapped.elf
 
 %.dtb: %.dts
 	dtc $< -O dtb > $@
