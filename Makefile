@@ -1,6 +1,6 @@
 #LD       = riscv64-unknown-elf-ld
-LD       = ld.lld
-LDSCRIPT = script.ld
+LD       ?= ld.lld
+LDSCRIPT ?= script.ld
 
 all: devicetree.wrapped.elf devicetree.no-uart.wrapped.elf devicetree.dual.wrapped.elf
 
