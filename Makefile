@@ -1,5 +1,5 @@
 #LD       = riscv64-unknown-elf-ld
-LD       = ld
+LD       = ld.lld
 LDSCRIPT = script.ld
 
 all: devicetree.wrapped.elf devicetree.no-uart.wrapped.elf devicetree.dual.wrapped.elf
@@ -8,7 +8,7 @@ all: devicetree.wrapped.elf devicetree.no-uart.wrapped.elf devicetree.dual.wrapp
 	dtc $< -O dtb > $@
 
 %.wrapped.elf: %.dtb script.ld
-	$(LD) -o $@ -b binary -T $(LDSCRIPT) $<
+	$(LD) -o $@ -b binary -m elf64lriscv -T $(LDSCRIPT) $<
 
 .PHONY: clean
 clean:
