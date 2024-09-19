@@ -3,7 +3,7 @@ OUTPUT_ARCH( "riscv" )
 
 SECTIONS
 {
-  . = 0x80000000;
+  . = 0xc0000000;
   _start = .;
   .data : { *(.data) }
 }
